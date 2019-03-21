@@ -1,0 +1,118 @@
+<div *ngIf="myReqHendler.pokemon != null" >
+  <div class = "images">
+    {{loadRolls()}}
+    <img src="{{myReqHendler.pokemon.sprites.front_default}}">
+    <img src="{{myReqHendler.pokemon.sprites.back_default}}">
+    <img src="{{myReqHendler.pokemon.sprites.front_female}}">
+    <img src="{{myReqHendler.pokemon.sprites.back_female}}">
+    <img src="{{myReqHendler.pokemon.sprites.front_shiny}}">
+    <img src="{{myReqHendler.pokemon.sprites.back_shiny}}">
+    <img src="{{myReqHendler.pokemon.sprites.front_shiny_female}}">
+    <img src="{{myReqHendler.pokemon.sprites.back_shiny_female}}">
+  </div>
+
+  <div>Id : {{myReqHendler.pokemon.id}}</div>
+  <div>Name : {{myReqHendler.pokemon.name}}</div>
+  <div>Order : {{myReqHendler.pokemon.order}}</div>
+  <div>Is defualt : {{myReqHendler.pokemon.is_default}}</div>
+  <div>Species Name: {{myReqHendler.pokemon.species.name}}</div>
+  <div>Species url : {{myReqHendler.pokemon.species.url}}</div>
+  <div>Weight : {{myReqHendler.pokemon.weight}}</div>
+  <div>Height : {{myReqHendler.pokemon.height}}</div>
+  <div>Base experience : {{myReqHendler.pokemon.base_experience}}</div>
+  <div>Location_area_encounters : {{myReqHendler.pokemon.location_area_encounters}}</div>
+
+  <button class="collapsible">Abilities</button>
+  <ol class="content">
+    <li *ngFor="let a of myReqHendler.pokemon.abilities">
+      <div>Ability name : {{a.ability.name}}</div>
+      <div>Ability url : {{a.ability.url}}</div>
+      <br>
+    </li>
+  </ol>
+
+  <button class="collapsible">Forms</button>
+  <ol class="content">
+    <li *ngFor="let f of myReqHendler.pokemon.forms">
+      <div>Forms name : {{f.name}}</div>
+      <div>Forms url : {{f.url}}</div>
+      <br>
+    </li>
+  </ol>
+
+
+  <button class="collapsible">Game indices</button>
+  <ol class="content">
+      <li *ngFor="let g of myReqHendler.pokemon.game_indices">
+        <div>Game index : {{g.game_index}}</div>
+        <div>Version name : {{g.version.name}}</div>
+        <div>Version url : {{g.version.url}}</div>
+        <br>
+      </li>
+    </ol>
+
+
+    <button class="collapsible">Held Item</button>
+  <ol class="content">
+      <li *ngFor="let h of myReqHendler.pokemon.held_items">
+        <div>Version name : {{h.item.name}}</div>
+        <div>Version url : {{h.item.url}}</div>
+        <button class="collapsible">Version Details</button>
+        <ol class="content">
+          <li *ngFor = "let v of h.version_details">
+            <div>Rarity : {{v.rarity}}</div>
+            <div>Rarity : {{v.version.name}}</div>
+            <div>Rarity : {{v.version.url}}</div>
+            <br>
+          </li>
+        </ol>
+      </li>
+    </ol>
+
+    <button class="collapsible">Move</button>
+  <ol class="content">
+      <li *ngFor="let m of myReqHendler.pokemon.moves">
+        <div>Move name : {{m.move.name}}</div>
+        <div>Move url : {{m.move.url}}</div>
+        <br>
+        <button class="collapsible">Version Group Details</button>
+        <ol class="content">
+          <li *ngFor = "let v of m.version_group_details">
+            <div>Level Learned At :  : {{v.level_learned_at}}</div>
+            <div>Move Learn Name : {{v.move_learn_method.name}}</div>
+            <div>Move Learn Url : {{v.move_learn_method.url}}</div>
+            <div>Version Group Name : {{v.version_group.name}}</div>
+            <div>Version Group Url : {{v.version_group.url}}</div>
+            <br>
+          </li>
+        </ol>
+      </li>
+    </ol>
+
+
+    <button class="collapsible">State</button>
+  <ol class="content">
+      <li *ngFor="let s of myReqHendler.pokemon.stats">
+        <div>Base State : {{s.base_state}}</div>
+        <div>Base Effort : {{s.effort}}</div>
+        <div>Stat name : {{s.stat.name}}</div>
+        <div>Stat url : {{s.stat.url}}</div>
+        <br>
+      </li>
+    </ol>
+
+    <button class="collapsible">Types</button>
+  <ol class="content">
+      <li *ngFor="let t of myReqHendler.pokemon.types">
+        <div>Slot : {{t.slot}}</div>
+        <div>Stat name : {{t.type.name}}</div>
+        <div>Stat url : {{t.type.url}}</div>
+        <br>
+      </li>
+    </ol>
+
+
+</div>
+
+
+<div *ngIf="myReqHendler.pokemon == null">{{myReqHendler.name}}</div>
